@@ -6,4 +6,4 @@ def solution(brown, yellow):
             ans = i
             break
     # print(ans)
-    return [(yellow / ans) + 2, ans+2]
+    return [(yellow / ans) + 2, ans + 2]
