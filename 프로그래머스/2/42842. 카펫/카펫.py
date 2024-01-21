@@ -5,5 +5,5 @@ def solution(brown, yellow):
         if brown - (2 * (i+2)) == k * 2:
             ans = i
             break
-    print(ans)
+    # print(ans)
     return [(yellow / ans) + 2, ans+2]
