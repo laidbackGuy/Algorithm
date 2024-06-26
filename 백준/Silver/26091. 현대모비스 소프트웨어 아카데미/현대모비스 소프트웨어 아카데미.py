@@ -68,8 +68,6 @@ if flag is True:
                 else:
                     break
         # print(left, right)
-        if left >= right:
-            break
 
 print(answer)
 
