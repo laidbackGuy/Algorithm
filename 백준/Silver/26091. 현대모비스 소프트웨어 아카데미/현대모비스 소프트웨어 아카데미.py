@@ -4,20 +4,22 @@ input = sys.stdin.readline
 
 N, M = map(int, input().split())
 arr = list(map(int, input().split()))
-
 arr.sort()
-# print(arr)
+
 left = 0
 right = N-1
 answer = 0
-# print(left, right)
-
 flag = True
+
 if left == right:
     answer = 0
     flag = False
+
+# left, right 포인터 바뀔때마다 항상 left가 right보다 크거나 같은지 확인해줌
 if flag is True:
     while 1:
+        # 왼쪽 오른쪽 더해서 요건 충족하면 팀으로 선발
+        # 왼쪽 오른쪽 포인터 한개씩 이동
         if arr[left] + arr[right] >= M:
             answer += 1
             left += 1
@@ -25,8 +27,9 @@ if flag is True:
             if left >= right:
                 break
         else:
-            new_left = left
+            # 값이 달라질때까지 왼쪽 포인터 옮기기
             left_flag = None
+            new_left = left
             while left < right:
                 new_left += 1
                 if new_left == right:
@@ -35,40 +38,10 @@ if flag is True:
                 if arr[new_left] != arr[left]:
                     left_flag = True
                     break
-            new_right = right
-            right_flag = None
-            while 1:
-                new_right -= 1
-                if new_right == left:
-                    right_flag = False
-                    break
-                if arr[new_right] != arr[right]:
-                    left_flag = True
-                    break
-            if left_flag and right_flag:
-                dif_left = arr[new_left] - arr[left]
-                dif_right = arr[right] - arr[new_right]
-                if dif_left <= dif_right:
-                    left = new_left
-                    if left >= right:
-                        break
-                else:
-                    right = new_right
-                    if left >= right:
-                        break
+
+            if left_flag:
+                left = new_left
             else:
-                if left_flag and not right_flag:
-                    left = new_left
-                    if left >= right:
-                        break
-                elif right_flag and not left_flag:
-                    right = new_right
-                    if left >= right:
-                        break
-                else:
-                    break
-        # print(left, right)
+                break
 
 print(answer)
-
-# 3 3 5 5 6 7
