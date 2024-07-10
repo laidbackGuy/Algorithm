@@ -1,7 +1,5 @@
 # 한 줄로 서기
 import sys
-from collections import deque
-
 input = sys.stdin.readline
 
 N = int(input())
@@ -27,8 +25,7 @@ for i in range(N-1):
                                 break
                             k += 1
                         break
-                    else:
-                        k += 1
+                    k += 1
                 else:
                     k += 1
         else:
