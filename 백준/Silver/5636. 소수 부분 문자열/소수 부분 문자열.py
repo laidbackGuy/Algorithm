@@ -9,12 +9,12 @@ while 1:
         break
 
     if len(my_str) > 5:
-        max_range = 5
+        max_range = 6
     else:
         max_range = len(my_str)
 
     candi = 0
-    for ran in range(1, max_range+1):
+    for ran in range(1, max_range):
         for i in range(len(my_str)-ran):
             now = my_str[i:i+ran]
             for j in range(2, int(now)):
