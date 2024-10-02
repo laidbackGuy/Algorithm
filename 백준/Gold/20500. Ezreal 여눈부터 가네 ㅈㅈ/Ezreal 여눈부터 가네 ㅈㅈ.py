@@ -1,7 +1,10 @@
 # Ezreal 여눈부터 가네 ㅈㅈ
 from itertools import product
-
+import sys
+sys.setrecursionlimit(2500)
 N = int(input())
+
+# 직접 구현해서 규칙 찾기
 # candis = list(product('15', repeat=N))
 # answer = 0
 # print(candis)
@@ -11,17 +14,31 @@ N = int(input())
 #         if now % 15 == 0:
 #             answer += 1
 #
-# print(answer % 1000000007)
 
 dp = [0] * 1516
 dp[2] = 1
 dp[3] = 1
 
-for i in range(4, 1516):
-    if i % 2 == 0:
-        dp[i] = dp[i-1]*2 + 1
-    else:
-        dp[i] = dp[i-1]*2 - 1
+# for문으로 배열 채워버리는 방식
+# for i in range(4, 1516):
+#     if i % 2 == 0:
+#         dp[i] = dp[i-1]*2 + 1
+#     else:
+#         dp[i] = dp[i-1]*2 - 1
 
-answer = dp[N] % 1000000007
+
+# 재귀로 구현
+def ddp(n):
+    if n <= 3:
+        return dp[n]
+
+    if n % 2 == 0:
+        return ddp(n-1) * 2 + 1
+    else:
+        return ddp(n-1) * 2 - 1
+
+
+answer = ddp(N)
+answer %= 1000000007
+# answer = dp[N] % 1000000007
 print(answer)
