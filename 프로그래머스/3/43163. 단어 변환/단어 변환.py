@@ -1,34 +1,48 @@
-answer = 1e9
-flag = False
 def solution(begin, target, words):
-    visited = [0] * len(words)
+    global answer
+    answer = 1e9
+    M = len(words)
+    length = len(begin)
+    visited = [0] * M
     
-    def dfs(current, target, cnt):
-        global answer, flag
+    
+    def find(now, cnt):
+        # print(now)
+        global answer
         
-        if current == target:   # target이 되었을 때 return
-            if cnt < answer:    # cnt 최솟값 찾기
-                answer = cnt
-            flag = True         # target에 도달 가능하다고 flag 세우기
+        if now == target:
+            answer = min(answer, cnt)
+        
+        if cnt >= answer:
             return
         
-        if cnt >= answer:       # 가지치기(cnt가 기존 최솟값을 이미 넘어갔다면 return)
-            return
-        
-        for i in range(len(words)):
-            if not visited[i]:  # 방문한 적 없는 단어만 가기
-                same_char = 0
-                for k in range(len(begin)):         # 알파벳 한개만 다른 단어 찾기
-                    if current[k] == words[i][k]:
-                        same_char += 1
-                if same_char == len(begin) - 1: 
-                    visited[i] = 1                  # 방문 처리
-                    dfs(words[i], target, cnt + 1)  # 다음 재귀
-                    visited[i] = 0                  # 미방문 처리
+        for i in range(M):
+            next = words[i]
+            # print(next)
+            if visited[i] == 0:
+                point = 0
+                for k in range(length):
+                    # print(now[k], next[k])
                     
-    dfs(begin, target, 0)
+                    if now[k] != next[k]:
+                        point += 1
+                        if point > 1:
+                            break
+                # print(point)
+                if point == 1:
+                    visited[i] = 1
+                    # print(now, next)
+                    find(next, cnt + 1)
+                    visited[i] = 0
+                    
+                    
+    if target not in words:
+        return 0
     
-    if flag is False:
+    find(begin, 0)
+        
+    if answer == 1e9:
         return 0
     
     return answer
+    
