@@ -1,5 +1,4 @@
 # 통계학
-import heapq
 
 N = int(input())
 sum_v = 0
@@ -30,4 +29,4 @@ if len(candis) == 1:
 else:
     candis.sort()
     print(candis[1])
-print(max(arr) - min(arr))
+print(arr[-1] - arr[0])
