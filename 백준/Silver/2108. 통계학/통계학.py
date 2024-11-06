@@ -1,4 +1,6 @@
 # 통계학
+import sys
+input = sys.stdin.readline
 
 N = int(input())
 sum_v = 0
@@ -11,7 +13,8 @@ for _ in range(N):
     num = int(input())
     if num in my_dict:
         my_dict[num] += 1
-        max_cnt = max(max_cnt, my_dict[num])
+        if max_cnt < my_dict[num]:
+            max_cnt = my_dict[num]
     else:
         my_dict[num] = 1
     sum_v += num
