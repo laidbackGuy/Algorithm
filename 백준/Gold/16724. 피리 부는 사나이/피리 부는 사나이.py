@@ -30,7 +30,6 @@ for i in range(N):
         number += 1
         numbers[i][j] = number
 answer = 0
-number = 0
 for i in range(N):
     for j in range(M):
         if board[i][j] == 'D':
