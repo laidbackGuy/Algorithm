@@ -10,10 +10,6 @@ max_range = min(N, M)
 for k in range(max_range, 1, -1):
     for i in range(N-k+1):
         for j in range(M-k+1):
-            # print(i, j)
-            # print(i, j+k-1)
-            # print(i+k-1, j)
-            # print(i+k-1, j+k-1)
             if arr[i][j] == arr[i][j+k-1] == arr[i+k-1][j] == arr[i+k-1][j+k-1]:
                 print(k**2)
                 flag = True
