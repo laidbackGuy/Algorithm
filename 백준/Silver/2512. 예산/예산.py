@@ -1,4 +1,7 @@
 # 예산
+'''
+상한액 요청예산들의 최솟값보다 작은 경우
+'''
 import sys
 input = sys.stdin.readline
 
@@ -24,6 +27,6 @@ while left <= right:
     if not flag:
         right = mid - 1
     else:
-        answer = max(answer, mid)
+        answer = mid
         left = mid + 1
 print(answer)
