@@ -18,17 +18,14 @@ def union(x, y):
     else:
         parents[y] = x
 
-flag = False
+answer = 0
 for cnt in range(1, M+1):
     a, b = map(int, input().split())
     A = find(a)
     B = find(b)
     if A == B:
-        print(cnt)
-        flag = True
+        answer = cnt
         break
     else:
         union(A, B)
-
-if not flag:
-    print(0)
+print(answer)
