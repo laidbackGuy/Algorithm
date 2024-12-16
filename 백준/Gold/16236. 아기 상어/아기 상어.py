@@ -26,10 +26,10 @@ def find(si, sj):
     target_fish = []
     while q:
         i, j = q.popleft()
-        if flag and visited[i][j] >= min_dis:
+        if flag and 0 < arr[i][j] < shark_size:
+        # if flag and visited[i][j] >= min_dis:
             min_i, min_j = 20, 20
             target_idx = None
-            # print(target_fish)
             for k in range(len(target_fish)):
                 ci = target_fish[k][0]
                 cj = target_fish[k][1]
@@ -42,10 +42,7 @@ def find(si, sj):
                         min_i, min_j = ci, cj
                         target_idx = k
                         continue
-            # print(target_fish[target_idx])
-            # print(target_fish[target_idx][0], target_fish[target_idx][1], min_dis)
             return target_fish[target_idx][0], target_fish[target_idx][1], min_dis
-        # print('i, j :', i, j)
         for di, dj in [[-1, 0], [0, -1], [0, 1], [1, 0]]:
             ni, nj = i + di, j + dj
             if 0 <= ni < N and 0 <= nj < N:
@@ -68,7 +65,6 @@ def find(si, sj):
 time = 0
 eat_cnt = 0
 while fish_cnt > 0:
-    # print('상어:', si, sj)
     ti, tj, spend = find(si, sj)
     if not spend:
         break
@@ -82,9 +78,4 @@ while fish_cnt > 0:
             eat_cnt = 0
         si, sj = ti, tj
         time += spend
-        # for r in arr:
-        #     print(r)
-        # print('상어크기:', shark_size)
-        # print(time)
-        # print()
 print(time)
