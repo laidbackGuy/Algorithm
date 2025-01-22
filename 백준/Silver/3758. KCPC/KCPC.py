@@ -14,11 +14,8 @@ for tc in range(T):
         table[i][j] = max(table[i][j], s)
         submit[i] += 1
         last_submit[i] = time
-    # print(table)
-    # print(submit)
-    # print(last_submit)
+        
     score = sum(table[t])
-    # print(score)
     for i in range(1, n+1):
         if i == t:
             continue
