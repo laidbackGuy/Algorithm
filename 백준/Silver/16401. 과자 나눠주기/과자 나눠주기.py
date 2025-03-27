@@ -8,35 +8,23 @@ left, right = 1, max(snacks)
 
 
 def check(length):
-    # global answer
     cnt = 0
     for s in snacks:
-        while 1:
-            if s >= length:
-                s -= length
-                cnt += 1
-                if cnt == M:
-                    # answer = length
-                    return True
-            else:
-                break
+        cnt += s // length
+        if cnt >= M:
+            return True
     return False
 
 
 flag = False
-# answer = 1
 while left <= right:
     mid = (left + right) // 2
-    # print(left, mid, right)
     if check(mid):
         flag = True
         left = mid + 1
     else:
         right = mid - 1
-    # print(left, mid, right)
-    # print()
 if not flag:
     print(0)
 else:
-    # print(answer)
     print(right)
