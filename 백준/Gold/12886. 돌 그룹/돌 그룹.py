@@ -10,7 +10,7 @@ if total % 3 != 0:
     print(answer)
 else:
     share = total // 3
-    visited = [[0] * (total + 1) for _ in range(total + 1)]
+    visited = [[0] * 1501 for _ in range(1501)]
     q = deque([(A, B)])
     visited[A][B] = 1
     while q:
@@ -34,5 +34,4 @@ else:
             if visited[a][b] == 0:
                 q.append((a, b))
                 visited[a][b] = 1
-
     print(answer)
