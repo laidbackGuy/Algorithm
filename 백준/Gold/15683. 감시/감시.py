@@ -10,8 +10,8 @@ didj = [[0, 1], [1, 0], [0, -1], [-1, 0]]
 
 def calc(arr):
     '''
-    cctv 시야가 기록된 2차원 배열을 받아서
-    시각지대의 크기를 계산하여 return해주는 함수
+    cctv 시야가 표시된 2차원 배열을 인자로 받아서
+    사각지대의 크기를 계산하여 return해주는 함수
     '''
     res = 0
     for i in range(N):
@@ -23,7 +23,7 @@ def calc(arr):
 
 def operate(order):
     '''
-    cctv별로 방향 정보를 담은 배열을 받아
+    cctv별로 방향 정보를 담은 배열 order을 인자로 받아
     2차원 배열에 cctv의 시야를 표시하여 return해주는 함수
     '''
     global answer
@@ -106,8 +106,8 @@ def operate(order):
 
 def rec(order, cnt):
     '''
-    cctv를 회전시키는 모든 경우의 수를 조합한 배열을 만들어
-    operate함수를 실행시키는 함수
+    cctv를 회전시키는 모든 경우의 수를 조합한 배열을 만들어,
+    그것을 인자로 하여 operate함수를 실행시키는 함수
     '''
     if cnt == cctv_cnt:
         operate(order)
@@ -125,7 +125,6 @@ def rec(order, cnt):
         rec(order + [3], cnt + 1)
 
 
-arr = copy.deepcopy(office)
 cctv_table = []
 walls = []
 num = 0
