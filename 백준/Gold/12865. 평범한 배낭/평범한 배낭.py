@@ -1,4 +1,3 @@
-# 평범한 배낭
 import sys
 input = sys.stdin.readline
 
@@ -9,15 +8,11 @@ for _ in range(N):
 
 dp = [[0] * (K+1) for _ in range(N+1)]
 for i in range(1, N+1):
+    now_w, now_v = table[i]
     for j in range(1, K+1):
-        weight = table[i][0]
-        value = table[i][1]
+        if now_w <= j:
+            dp[i][j] = max(dp[i-1][j], dp[i-1][j-now_w] + now_v)
 
-        if j < weight:
-            dp[i][j] = dp[i-1][j]
         else:
-            # dp[i-1][j] : 현재 물건을 넣지 않았을 경우의 최대 가치
-            # dp[i-1][j-weight] + value : 현재 물건을 넣고 남은 무게만큼 넣을 수 있는 물건들 넣은 경우의 최대 가치
-            dp[i][j] = max(dp[i-1][j], dp[i-1][j-weight] + value)
-
+            dp[i][j] = dp[i-1][j]
 print(dp[N][K])
