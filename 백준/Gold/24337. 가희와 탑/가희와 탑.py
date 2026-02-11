@@ -15,7 +15,7 @@ else:
     if a + b < N + 1:
         if a == 1:
             for i in range((N + 1) - (a + b)):
-                buildings.appendleft(1)
+                buildings.append(1)
         else:
             remain = (N + 1) - (a + b)
 
@@ -29,8 +29,6 @@ else:
 
     for i in range(remain):
         buildings.appendleft(1)
-
-    # print(buildings)
 
     for n in buildings:
         print(n, end=" ")
