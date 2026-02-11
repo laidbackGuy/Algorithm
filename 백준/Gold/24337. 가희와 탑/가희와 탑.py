@@ -30,5 +30,4 @@ else:
     for i in range(remain):
         buildings.appendleft(1)
 
-    for n in buildings:
-        print(n, end=" ")
+    print(*buildings)
