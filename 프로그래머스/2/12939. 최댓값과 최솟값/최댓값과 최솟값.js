@@ -1,4 +1,5 @@
 function solution(s) {
-    const arr = s.split(' ').map(Number);
+    // const arr = s.split(' ').map(Number);
+    const arr = s.split(' ');
     return Math.min(...arr) + ' ' + Math.max(...arr);
 }
