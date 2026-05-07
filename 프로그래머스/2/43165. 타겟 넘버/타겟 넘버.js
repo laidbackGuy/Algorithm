@@ -1,7 +1,7 @@
 function solution(numbers, target) {
     var answer = 0;
     
-    function rec(cur, cnt) {
+    const rec = (cur, cnt) => {
         if (cnt === numbers.length){
             if (cur === target){
                 answer++;
