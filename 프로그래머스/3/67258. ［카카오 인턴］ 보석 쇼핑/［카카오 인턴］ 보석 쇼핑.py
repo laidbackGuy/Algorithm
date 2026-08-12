@@ -18,6 +18,7 @@ def solution(gems):
             if length < min_length:
                 min_length = length
                 min_left, min_right = left, right
+            # 왼쪽 피봇 오른쪽으로 한 칸 옮기기
             left_gem = gems[left]
             table[left_gem] -= 1
             if table[left_gem] == 0:
@@ -25,6 +26,7 @@ def solution(gems):
             left += 1
         # 모든 보석 종류를 포함하고 있지 않다면
         else:
+            # 오른쪽 피봇 오른쪽으로 한 칸 옮기기
             right += 1
             if right == n:
                 break
