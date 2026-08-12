@@ -2,9 +2,7 @@ from collections import deque
 
 def solution(n, roads, sources, destination):
     answer = []
-    distance = [0] * (n+1)
     adj = [[] for _ in range(n+1)]
-    # cnt = 0
     visited = [-1] * (n+1)
     
     for u, v in roads:
@@ -25,6 +23,7 @@ def solution(n, roads, sources, destination):
     
     
     bfs()
+    
     for s in sources:
         answer.append(visited[s])
     return answer
