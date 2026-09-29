@@ -3,7 +3,7 @@ import java.util.*;
 class Solution {
     public boolean solution(String[] phone_book) {
         boolean answer = true;
-        HashMap<String, Boolean> myMap = new HashMap<>();
+        Map<String, Boolean> myMap = new HashMap<>();
         
         for (String num : phone_book) {
             myMap.put(num, true);
