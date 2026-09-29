@@ -5,18 +5,18 @@ class Solution {
         boolean answer = true;
         HashMap<String, Boolean> myMap = new HashMap<>();
         
-        for(String phone_num : phone_book){
-            myMap.put(phone_num, true);
+        for (String num : phone_book) {
+            myMap.put(num, true);
         }
         
-        for(String phone_num : phone_book){
-            int n = phone_num.length();
-            for(int i = 1 ; i < n ; i++){
-                if(myMap.containsKey(phone_num.substring(0, i))){
+        for (String num : phone_book) {
+            for (int i=1; i<num.length(); i++) {
+                if (myMap.containsKey(num.substring(0, i))) {
                     return false;
                 }
-            }
+            }  
         }
-        return true;
+        
+        return answer;
     }
 }
