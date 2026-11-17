@@ -18,9 +18,6 @@ class Solution {
             return a;
         }
 
-        System.out.println(l);
-        System.out.println(r);
-
         for (int i = l; i <= r; i++) {
             answer += i;
         }
